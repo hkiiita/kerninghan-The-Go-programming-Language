@@ -1,21 +1,20 @@
 package ch1
 
 import (
-	"fmt"
-	"os"
+	"strings"
 )
 
-func BaseEnv() {
-	//Using indexes
-	println("Using indexes")
-	for i := 0; i < len(os.Args); i++ {
-		fmt.Printf("index : %d -- value %s\n", i, os.Args[i])
-	}
 
-	//Using range
-	println("Using range")
-	for i, value := range os.Args {
-		fmt.Printf("index : %d -- value %s\n", i, value)
+func UsingLoop(args []string) {
+	var res string
+	var sep = " "
+	for i := 0; i < len(args); i++ {
+		res += res + sep + args[i]
 	}
+	println(res)
+}
 
+func UsingJoin(args []string) {
+	res := strings.Join(args, " ")
+	println(res)
 }
